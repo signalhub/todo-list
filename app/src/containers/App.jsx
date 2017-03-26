@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addNewTodo, toggleTodo } from './../actions';
+import { addNewTodo, toggleTodo, clearAll } from './../actions';
 import TodoList from './../components/TodoList';
 
 function mapStateToProps(state) {
@@ -9,10 +9,11 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-	return {
-		addNewTodo: text => dispatch(addNewTodo(text)),
-		toggleTodo: id => dispatch(toggleTodo(id))
-	};
+	return bindActionCreators({
+		addNewTodo,
+		toggleTodo,
+		clearAll
+	}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

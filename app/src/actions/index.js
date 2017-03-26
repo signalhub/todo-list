@@ -19,3 +19,10 @@ export const toggleTodo = (id) => {
 		}
 	}
 };
+
+export const clearAll = () => {
+	return {
+		type: 'CLEAR_ALL',
+		payload: {}
+	}
+};

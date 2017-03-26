@@ -14,6 +14,8 @@ export default function reducer(todoList = initList, action) {
 					return todo;
 				}
 			});
+		case 'CLEAR_ALL':
+			return initList;
 		default:
 			return todoList;
 	}

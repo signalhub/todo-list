@@ -6,13 +6,14 @@ import './styles.styl'
 const propTypes = {
 	todoList: PropTypes.array,
 	addNewTodo: PropTypes.func,
-	toggleTodo: PropTypes.func
+	toggleTodo: PropTypes.func,
+	clearAll: PropTypes.func
 };
 
 class TodoList extends Component {
 
 	render() {
-		const {todoList, addNewTodo, toggleTodo} = this.props;
+		const {todoList, addNewTodo, toggleTodo, clearAll} = this.props;
 		const onSubmit = (event) => {
 			const input = event.target;
 			const text = input.value;
@@ -24,7 +25,6 @@ class TodoList extends Component {
 		};
 
 		const toggleClick = (id) => event => toggleTodo(id);
-
 		return (
 			<div className="b-main">
 				<h1>TODO LIST</h1>
@@ -42,6 +42,10 @@ class TodoList extends Component {
 							</li>
 						))}
 					</ul>
+					{
+						todoList.size ? <button className="btn-clear-list" onClick={clearAll}>Clear list</button> : ''
+					}
+
 				</div>
 			</div>
 		)
