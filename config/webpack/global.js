@@ -4,8 +4,6 @@ const path = require('path');
 const webpack = require('webpack');
 const TextPlugin = require('extract-text-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin-extra-files');
-const nib         = require('nib');
-
 
 module.exports = function(_path) {
     const appPath = path.join(_path, 'app'),
@@ -87,6 +85,7 @@ module.exports = function(_path) {
                 template: path.join(aliases._app, 'index.html'),
             }),
             new TextPlugin('assets/css/[name].css'),
+            // new webpack.optimize.UglifyJsPlugin()
         ]
     };
 };
