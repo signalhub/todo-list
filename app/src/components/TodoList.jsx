@@ -27,7 +27,7 @@ class TodoList extends Component {
 		const toggleClick = (id) => event => toggleTodo(id);
 		return (
 			<div className="b-main">
-				<h1>TODO LIST</h1>
+				<h1>MY TODO LIST</h1>
 
 				<div className="b-todo-list">
 					<input type='text'
